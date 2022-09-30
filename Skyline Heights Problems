@@ -1,0 +1,37 @@
+For this problem we are given with buildings array where each buildings have its start point, end point and height.
+We will move left to right in the building array and examine start point and end points of the buildings by keeping that into the Priority Queue (PQ). 
+Whenever we encounter start of a building we push the height of that building in the PQ. 
+If the max in the PQ changes means that this building has start point taller than every other overlapping building at this starting point. 
+So it need to be push into the final output. Also whenever we encounter end of the building we need to remove that from the PQ and again 
+if the max changes we will update it otherwise not. for example you removed end of a building whose max was 4 and now in priority queue you ave another 
+building whose height is 2 so now max should be updated with this 2 as 4 will be removed from the PQ. ALso if max changes means value should be part of ans/output so add it. 
+
+**Edge cases that we may encounter while performing this:**
+
+> Case 1 : Start of 2 or more buildings is same:
+
+X  Y  P
+0  3  S
+0  2  S
+1  2  E
+2  3  E
+
+Now, here we can see that building with higher height should be looked first then the building with lower height.
+
+> Case 2 : Ends of 2 buildings are same 
+
+X  Y  P
+3  3  S
+4  2  S
+5  2  E
+5  3  E
+
+now the one with lower height should be examined first then the one wit the higher height.
+
+> Case 3 : If end of a building overlaps with start of another building then the next building start should showed 1st before the end of the 1st one.
+
+**Time Complexity** : 
+
+As all the operations are doing here are either adding elements to the PQ or removing elelments to the PQ or looking at the max value. all can be done in O(logn) and for all the buildings O(nlogn).
+
+
